@@ -2,9 +2,11 @@
 Template Python project which uses Python Flask and React to serve a standalone web application with a React UI.
 
 ## 🎟 Installation & Usage
+⚠ NOTE: Project management will require Poetry https://python-poetry.org/
+
 Clone the project and run the application using
 ```bash
-    $ pip3 install poetry && poetry install && poetry run dev
+    $ poetry install && poetry run dev
 ```
 
 ## 🏗 Development
