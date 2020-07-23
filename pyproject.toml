@@ -14,9 +14,14 @@ Flask = "^1.1.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
+pytest-html = "^2.1.1"
+pytest-cov = "^2.10.0"
+pyclean = "^2.0.0"
 
 [tool.poetry.scripts]
-flask = "poetry_scripts:flask"
+dev = "poetry_scripts:dev"
+clean = "poetry_scripts:clean"
+test = "poetry_scripts:test"
 build = "poetry_scripts:build"
 
 [build-system]

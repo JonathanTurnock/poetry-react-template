@@ -4,7 +4,7 @@ Template Python project which uses Python Flask and React to serve a standalone 
 ## 🎟 Installation & Usage
 Clone the project and run the application using
 ```bash
-    $ pip3 install poetry 
+    $ pip3 install poetry && poetry install && poetry run dev
 ```
 
 ## 🏗 Development
@@ -14,6 +14,14 @@ Clone the project and run the application using
 * Install Poetry
 ```bash
     $ pip3 install poetry
+```
+* Configure Project
+```bash
+    $ poetry install
+```
+* Confirm Tests Run
+```bash
+    $ poetry run test
 ```
 
 #### ⚛ Node & React
