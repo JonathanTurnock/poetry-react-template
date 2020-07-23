@@ -89,12 +89,12 @@ def build():
     clean()
     test()
 
-    info("👷 Building React App ‍")
+    info("👷 Building React App‍")
     os.system('yarn --cwd "client" && yarn --cwd "client" build')
-    info("React App Build complete")
+    info("React App Build Complete")
 
     try:
-        info("Copying React App to web folder")
+        info("Copying React App to Web folder")
         shutil.rmtree("web", ignore_errors=True)
         shutil.move("client/build", "web")
         info("🥳 Done 🥳")
