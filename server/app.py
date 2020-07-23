@@ -5,7 +5,9 @@ from flask import Flask, send_from_directory, jsonify
 
 from server.health import get_app_health
 
-app = Flask(__name__)
+web_root = str(Path(Path(path.abspath(path.dirname(__file__))).parent, 'web').absolute())
+
+app = Flask(__name__, root_path=web_root)
 
 
 @app.route('/')
