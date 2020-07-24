@@ -1,7 +1,7 @@
 import logging
 import threading
 
-from . import wev, config, flask
+from server import wev, config, flask_app
 
 LOGGER = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ def start_with_head():
     do()
 
     LOGGER.info("Spawning Server Thread")
-    flask_thread = threading.Thread(target=flask.start)
+    flask_thread = threading.Thread(target=flask_app.start, daemon=True)
     flask_thread.start()
     wev.start()
 
@@ -30,7 +30,7 @@ def start_with_head():
 def start_headless():
     LOGGER.info("Running headless")
     do()
-    flask.start()
+    flask_app.start()
 
 
 if __name__ == "__main__":

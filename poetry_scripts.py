@@ -89,7 +89,10 @@ def clean():
 
     info("Removing Logs")
     for path in glob.glob("*.log"):
-        os.remove(path)
+        try:
+            os.remove(path)
+        except:
+            pass
 
     info("✨ Folders Cleaned ✨")
 
@@ -117,8 +120,12 @@ def build():
 
     try:
         info("Copying React App to Web folder")
-        shutil.rmtree("web", ignore_errors=True)
-        shutil.move("client/build", "web")
+        try:
+            shutil.rmtree("web")
+            shutil.move("client/build", "web")
+            info("Successfully Copied Build to Web")
+        except Exception as e:
+            error(f"Failed to Copy Build due to {e}")
         info("🥳 Done 🥳")
     except FileNotFoundError:
         error("Failed to copy build from client folder as it doesnt exist")
