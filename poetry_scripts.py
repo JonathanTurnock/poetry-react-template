@@ -4,7 +4,7 @@ import shutil
 import sys
 from pathlib import Path
 
-from server.app import app
+from server import main
 
 sys.dont_write_bytecode = True
 
@@ -38,6 +38,7 @@ def error(msg):
 
 
 def test():
+    fmt()
     info("🧪 Running Unit Tests")
     result = os.system(" ".join(
         ["pytest",
@@ -65,23 +66,44 @@ def test():
 
 def clean():
     info("🧽 Cleaning Folders")
+
     info("Removing Build Folder")
     shutil.rmtree("build", ignore_errors=True)
+
     info("Removing Pytest Cache")
     shutil.rmtree(".pytest_cache", ignore_errors=True)
+
     info("Running PyClean")
     os.system("pyclean server/")
+
     info("Removing Coverage")
     if os.path.exists(".coverage"):
         os.remove(".coverage")
+
     info("Removing .egg-info folders")
     for path in glob.glob("*.egg-info"):
         shutil.rmtree(path, ignore_errors=True)
+
+    info("Removing webrtc_event_logs")
+    shutil.rmtree("webrtc_event_logs", ignore_errors=True)
+
+    info("Removing Logs")
+    for path in glob.glob("*.log"):
+        os.remove(path)
+
     info("✨ Folders Cleaned ✨")
 
 
 def dev():
-    app.run()
+    fmt()
+    main.start()
+
+
+def fmt():
+    info("🖤 Formatting Code using Black 🖤")
+    os.system("black server")
+    info("❄️ Validating with flake8 ❄️")
+    os.system("flake8 --ignore=E501 server")
 
 
 def build():

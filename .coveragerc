@@ -1,5 +1,10 @@
 [run]
-omit = *_test.py
+omit =
+    *_test.py
+    *bootstrap.py
+    *cef.py
+    *flask.py
+    *gql.py
 
 [report]
 fail_under = 30

@@ -1,5 +1,5 @@
 # Poetry React Template
-Template Python project which uses Python Flask and React to serve a standalone web application with a React UI.
+This example project has 4 distinct pillars that present an 
 
 ## 🎟 Installation & Usage
 ⚠ NOTE: Project management will require Poetry https://python-poetry.org/

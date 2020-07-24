@@ -24,7 +24,7 @@ class Health:
     @classmethod
     def down(cls, detail: dict = None) -> Health:
         """
-        :param detail: Detailed cause of the status being down in dictionary format
+        :param detail: Dict with information on reason
         :return: Health Status od DOWN with given Detail
         """
         return Health(Status.DOWN, detail if detail is not None else {})

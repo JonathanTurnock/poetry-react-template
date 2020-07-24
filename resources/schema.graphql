@@ -1,0 +1,12 @@
+schema {
+    query: RootQuery
+    mutation: RootMutation
+}
+
+type RootMutation {
+    exampleMutation: String!
+}
+
+type RootQuery {
+    exampleQuery(name: String!): String!
+}

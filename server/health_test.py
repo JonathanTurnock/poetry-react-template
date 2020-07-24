@@ -4,7 +4,6 @@ from server.health import Health, Status
 
 
 class TestHealth(TestCase):
-
     def setUp(self) -> None:
         self.health_ok = Health.up()
         self.health_down = Health.down(detail={"error": "EXAMPLE_MSG"})

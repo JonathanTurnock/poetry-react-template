@@ -9,20 +9,28 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.7"
 Flask = "^1.1.2"
+cefpython3 = "^66.0"
+flask_graphql = "^2.0.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
 pytest-html = "^2.1.1"
 pytest-cov = "^2.10.0"
 pyclean = "^2.0.0"
+black = "^19.10b0"
+flake8 = "^3.8.3"
 
 [tool.poetry.scripts]
 dev = "poetry_scripts:dev"
 clean = "poetry_scripts:clean"
 test = "poetry_scripts:test"
 build = "poetry_scripts:build"
+fmt = "poetry_scripts:fmt"
+
+[tool.black]
+line-length=79
 
 [build-system]
 requires = ["poetry>=0.12"]
