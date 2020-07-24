@@ -1,5 +1,7 @@
 # Poetry React Template
-This example project has 4 distinct pillars that present an 
+Project Template allowing a server side and desktop app using React, Flask and CEF orchestrated by Poetry
+
+![architecture](README.png)
 
 ## 🎟 Installation & Usage
 ⚠ NOTE: Project management will require Poetry https://python-poetry.org/
