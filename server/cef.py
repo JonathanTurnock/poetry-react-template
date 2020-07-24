@@ -12,14 +12,18 @@ LOGGER = logging.getLogger(__name__)
 def start():
     LOGGER.info("Starting Embedded Chrome")
     sys.excepthook = cef.ExceptHook  # To shutdown all CEF processes on error
+    LOGGER.info("Initializing CEF")
     cef.Initialize()
+    LOGGER.info("Creating CEF Browser Sync")
     cef.CreateBrowserSync(
         url=f"http://"
         f"{config.get('app', 'host_addr')}:"
         f"{config.get('app', 'host_port')}",
         window_title=config.get("app", "display_name"),
     )
+    LOGGER.info("Entering CEF Message Loop")
     cef.MessageLoop()
+    LOGGER.info("Shutting Down CEF")
     cef.Shutdown()
 
 

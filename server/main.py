@@ -33,5 +33,5 @@ def start_headless():
     flask.start()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     start()
