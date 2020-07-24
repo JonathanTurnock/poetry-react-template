@@ -1,7 +1,7 @@
 import logging
 import threading
 
-from . import cef, config, flask
+from . import wev, config, flask
 
 LOGGER = logging.getLogger(__name__)
 
@@ -24,7 +24,7 @@ def start_with_head():
     LOGGER.info("Spawning Server Thread")
     flask_thread = threading.Thread(target=flask.start)
     flask_thread.start()
-    cef.start()
+    wev.start()
 
 
 def start_headless():
