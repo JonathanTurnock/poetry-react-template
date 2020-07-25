@@ -9,9 +9,11 @@ client/.pnp.js
 
 # testing
 client/coverage
+/.coverage
 
 # production
 client/build
+/build
 
 # misc
 client/.DS_Store
@@ -24,4 +26,5 @@ client/npm-debug.log*
 client/yarn-debug.log*
 client/yarn-error.log*
 
-/*.log
+*.log
+

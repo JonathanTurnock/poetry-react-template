@@ -115,7 +115,12 @@ def build():
     test()
 
     info("👷 Building React App‍")
-    os.system('yarn --cwd "client" && yarn --cwd "client" build')
+    result = os.system('yarn --cwd "client" && yarn --cwd "client" build')
+
+    if result != 0:
+        error(f"🤬 Yarn Build Failed with exit code {result}, Exiting 🤬")
+        sys.exit(result)
+
     info("React App Build Complete")
 
     try:

@@ -1,12 +1,11 @@
 import logging
-from datetime import datetime
 from os import path
 from pathlib import Path
 
 from flask import Flask, send_from_directory, jsonify
 from flask_graphql import GraphQLView
 
-from . import web_root, shutdown_event, config
+from . import web_root, config
 from .gql import schema
 from .health import get_app_health
 
@@ -40,12 +39,7 @@ def check_health():
 
 def start():
     LOGGER.info("Starting Server")
-    shutdown_event.subscribe(shutdown)
     app.run(
         host=config.get("flask", "bind_address"),
         port=config.getint("flask", "port"),
     )
-
-
-def shutdown(timestamp: datetime):
-    LOGGER.info("Shutting Down Server")
