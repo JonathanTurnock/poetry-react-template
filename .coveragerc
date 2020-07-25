@@ -1,9 +1,9 @@
 [run]
 omit =
     *_test.py
-    *bootstrap.py
-    *cef.py
-    *flask.py
+    *main.py
+    *wev*.py
+    *flask_app.py
     *gql.py
 
 [report]
