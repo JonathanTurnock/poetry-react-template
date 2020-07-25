@@ -1,1 +1,1 @@
-export type Instruction = "CLOSE";
+export type Instruction = "closeApplication";

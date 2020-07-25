@@ -1,10 +1,10 @@
 [run]
 omit =
-    *_test.py
-    *main.py
-    *wev*.py
-    *flask_app.py
     *gql.py
+    *gui.py
+    *_test.py
+    *ipc_handler.py
+    *main.py
 
 [report]
 fail_under = 30

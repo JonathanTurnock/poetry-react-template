@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import { send } from "./ipc";
+import { send } from "./ipc/handler";
 
 export const App: React.FC = () => {
   return (
@@ -19,7 +19,7 @@ export const App: React.FC = () => {
         >
           Learn React
         </a>
-        <button onClick={() => send("CLOSE")}>Close App!</button>
+        <button onClick={() => send("closeApplication")}>Close App!</button>
       </header>
     </div>
   );
