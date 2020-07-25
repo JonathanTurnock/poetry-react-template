@@ -36,9 +36,7 @@ def start_listener():
 
 _el = asyncio.get_event_loop()
 
-ipc_resolvers = {
-    "CLOSE": lambda: close_window_request_event.on_next(True)
-}
+ipc_resolvers = {"CLOSE": lambda: close_window_request_event.on_next(True)}
 
 server = get_server()
 shutdown_event.subscribe(lambda e: server.close())

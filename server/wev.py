@@ -12,7 +12,8 @@ from PySide2.QtWidgets import QSplashScreen, QApplication
 from server import (
     shutdown_event,
     resources_root,
-    config, close_window_request_event,
+    config,
+    close_window_request_event,
 )
 
 _splash_screen = Path(resources_root, "splash.png")
