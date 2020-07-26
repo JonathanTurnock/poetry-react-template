@@ -22,8 +22,8 @@ async def _listen(websocket, path):
             LOGGER.error(f"Failed to process IPC Instruction ${message}", e)
 
 
-async def get_server():
-    return await websockets.server.serve(
+def get_server():
+    return websockets.serve(
         _listen,
         config.get("qt", "ipc_ws_bind_address"),
         config.getint("qt", "ipc_ws_port"),

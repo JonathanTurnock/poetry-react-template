@@ -23,7 +23,9 @@ class WebView(QWebEngineView):
                 f"http://{config.get('flask', 'connect_address')}:{config.get('flask', 'port')}"
             )
         )
-        self.showMaximized()
+        self.showFullScreen() if config.getboolean(
+            "app", "fullscreen"
+        ) else self.showMaximized()
         self.close_window_event = Subject()
         self._subscribe_to_ipc_events()
 
