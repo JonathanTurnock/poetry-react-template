@@ -4,7 +4,7 @@ import shutil
 import sys
 from pathlib import Path
 
-from server import main
+from server.main import Application
 
 sys.dont_write_bytecode = True
 
@@ -99,7 +99,8 @@ def clean():
 
 def dev():
     fmt()
-    main.start()
+    application = Application.get_app()
+    application.start()
 
 
 def fmt():
