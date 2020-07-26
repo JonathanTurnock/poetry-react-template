@@ -89,7 +89,10 @@ def clean():
 
     info("Removing Logs")
     for path in glob.glob("*.log"):
-        os.remove(path)
+        try:
+            os.remove(path)
+        except:
+            pass
 
     info("✨ Folders Cleaned ✨")
 
@@ -112,13 +115,22 @@ def build():
     test()
 
     info("👷 Building React App‍")
-    os.system('yarn --cwd "client" && yarn --cwd "client" build')
+    result = os.system('yarn --cwd "client" && yarn --cwd "client" build')
+
+    if result != 0:
+        error(f"🤬 Yarn Build Failed with exit code {result}, Exiting 🤬")
+        sys.exit(result)
+
     info("React App Build Complete")
 
     try:
         info("Copying React App to Web folder")
-        shutil.rmtree("web", ignore_errors=True)
-        shutil.move("client/build", "web")
+        try:
+            shutil.rmtree("web")
+            shutil.move("client/build", "web")
+            info("Successfully Copied Build to Web")
+        except Exception as e:
+            error(f"Failed to Copy Build due to {e}")
         info("🥳 Done 🥳")
     except FileNotFoundError:
         error("Failed to copy build from client folder as it doesnt exist")
